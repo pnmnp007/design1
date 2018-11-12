@@ -3,13 +3,14 @@ import { StyleSheet, TouchableOpacity, ScrollView, Text, View } from 'react-nati
 import newsImage from './assets/story1_1.jpg';
 import NewsItemMain from './src/components/News/NewsItemMain';
 import screen2 from './src/components/News/screen2';
-import {Card} from 'react-native-elements';
+import {Card, Icon} from 'react-native-elements';
 import { createStackNavigator } from 'react-navigation';
 export default class Home extends React.Component {
-  static navigationOptions =  {
-       //set title on phonescreen on the top view.
-           title: 'Home',
-       };
+
+  // static navigationOptions = {
+  //   header: { visible:false },
+  //   };
+
   render() {
     let newsDesc = "";
     newsDesc=newsDesc+newsDesc;
@@ -18,51 +19,69 @@ export default class Home extends React.Component {
       <View>
       <TouchableOpacity onPress={() => this.props.navigation.navigate('screen2')}>
       <Card
-        title='What were kids wearing for Halloween in 1935?'
-        image={newsImage}>
+        title={null}
+        image={newsImage}
+        imageStyle={{width: '100%', height: 300}}>
+        <Text style={{fontWeight: "bold", fontSize: 20}}>What were kids wearing for Halloween in 1935?</Text>
         <Text style={{marginBottom: 10}}>
           The idea with React Native Elements is more about component structure than actual design.
         </Text>
+        <View
+          style={{
+            borderBottomColor: 'black',
+            borderBottomWidth: 1
+          }}
+        />
+        <View style={styles.searchSection}>
+          <Icon style={styles.searchIcon} name="location-on" size={20} color="#000"/>
+          <Text style = {styles.input}>5 miles away</Text>
+      </View>
       </Card>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('screen2')}>
       <Card
-        title='HELLO WORLD'
-        image={newsImage}>
+        title={null}
+        image={newsImage}
+        imageStyle={{width: '100%', height: 300}}>
+        <Text style={{fontWeight: "bold", fontSize: 20}}>What were kids wearing for Halloween in 1935?</Text>
         <Text style={{marginBottom: 10}}>
           The idea with React Native Elements is more about component structure than actual design.
         </Text>
+        <View
+          style={{
+            borderBottomColor: 'black',
+            borderBottomWidth: 1
+          }}
+        />
+        <View style={styles.searchSection}>
+          <Icon style={styles.searchIcon} name="location-on" size={20} color="#000"/>
+          <Text style = {styles.input}>5 miles away</Text>
+      </View>
       </Card>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('screen2')}>
       <Card
-        title='HELLO WORLD'
-        image={newsImage}>
+        title={null}
+        image={newsImage}
+        imageStyle={{width: '100%', height: 300}}>
+        <Text style={{fontWeight: "bold", fontSize: 20}}>What were kids wearing for Halloween in 1935?</Text>
         <Text style={{marginBottom: 10}}>
           The idea with React Native Elements is more about component structure than actual design.
         </Text>
+        <View
+          style={{
+            borderBottomColor: 'black',
+            borderBottomWidth: 1
+          }}
+        />
+        <View style={styles.searchSection}>
+          <Icon style={styles.searchIcon} name="location-on" size={20} color="#000"/>
+          <Text style = {styles.input}>5 miles away</Text>
+      </View>
       </Card>
+      </TouchableOpacity>
       </View>
       </ScrollView>
-      // <View
-      //   style={styles.viewPager}
-      //   >
-      //   <View style={styles.container}>
-      //     <NewsItemMain
-      //       desc = {"First News \n"}
-      //       image = {newsImage}
-      //     />
-      // </View>
-      // <View style={styles.container}>
-      //     <NewsItemMain
-      //       desc = {"Second News \n"}
-      //       image = {newsImage}
-      //     />
-      // </View>
-      // <View style={styles.container}>
-      //     <NewsItemMain
-      //       desc = {"Third News \n"}
-      //       image = {newsImage}
-      //     />
-      // </View>
-      // </View>
     );
   }
 }
@@ -77,5 +96,24 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     // alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  }
+  },
+  searchSection: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+},
+searchIcon: {
+    padding: 10,
+},
+input: {
+    flex: 1,
+    paddingTop: 10,
+    paddingRight: 10,
+    paddingBottom: 10,
+    paddingLeft: 0,
+    backgroundColor: '#fff',
+    color: '#424242',
+}
 });
