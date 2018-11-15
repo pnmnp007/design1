@@ -13,18 +13,46 @@ export default class Home extends React.Component {
 
   render() {
     let newsDesc = "";
+    const title_images =[
+      require('./assets/1/title.jpg'),
+      require('./assets/2/title.jpg'),
+      require('./assets/3/title.jpg')
+    ];
     newsDesc=newsDesc+newsDesc;
     return (
       <ScrollView>
-      <View>
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('screen2')}>
-      <Card
+      <View >
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('screen2', {id:1})}>
+      <Card wrapperStyle={styles.category1}
         title={null}
-        image={newsImage}
+        image={title_images[0]}
         imageStyle={{width: '100%', height: 300}}>
-        <Text style={{fontWeight: "bold", fontSize: 20}}>What were kids wearing for Halloween in 1935?</Text>
+        <View>
+          <Text style={{fontWeight: "bold", fontSize: 20}}>What were kids wearing for Halloween in 1935?</Text>
+          <Text style={{marginBottom: 10}}>
+            The idea with React Native Elements is more about component structure than actual design.
+          </Text>
+          <View
+            style={{
+              borderBottomColor: 'black',
+              borderBottomWidth: 1
+            }}
+          />
+          <View style={styles.searchSection}>
+            <Icon style={styles.searchIcon} name="location-on" size={20} color="#000"/>
+            <Text style = {styles.input}>5 miles away</Text>
+          </View>
+        </View>
+      </Card>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('screen2', {id:2})}>
+      <Card wrapperStyle={styles.category2}
+        title={null}
+        image={title_images[1]}
+        imageStyle={{width: '100%', height: 300}}>
+        <Text style={{fontWeight: "bold", fontSize: 20}}>The Case of the Rosemead Marijuana Patch</Text>
         <Text style={{marginBottom: 10}}>
-          The idea with React Native Elements is more about component structure than actual design.
+          Marijuana goes up in smoke, but not “puff by puff”
         </Text>
         <View
           style={{
@@ -38,33 +66,12 @@ export default class Home extends React.Component {
       </View>
       </Card>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('screen2')}>
-      <Card
+      <TouchableOpacity onPress={() => this.props.navigation.navigate('screen2', {id:3})}>
+      <Card wrapperStyle={styles.category3}
         title={null}
-        image={newsImage}
+        image={title_images[2]}
         imageStyle={{width: '100%', height: 300}}>
-        <Text style={{fontWeight: "bold", fontSize: 20}}>What were kids wearing for Halloween in 1935?</Text>
-        <Text style={{marginBottom: 10}}>
-          The idea with React Native Elements is more about component structure than actual design.
-        </Text>
-        <View
-          style={{
-            borderBottomColor: 'black',
-            borderBottomWidth: 1
-          }}
-        />
-        <View style={styles.searchSection}>
-          <Icon style={styles.searchIcon} name="location-on" size={20} color="#000"/>
-          <Text style = {styles.input}>5 miles away</Text>
-      </View>
-      </Card>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => this.props.navigation.navigate('screen2')}>
-      <Card
-        title={null}
-        image={newsImage}
-        imageStyle={{width: '100%', height: 300}}>
-        <Text style={{fontWeight: "bold", fontSize: 20}}>What were kids wearing for Halloween in 1935?</Text>
+        <Text style={{fontWeight: "bold", fontSize: 20}}>Dia de Los Muertos: A Los Ángeles Tradition</Text>
         <Text style={{marginBottom: 10}}>
           The idea with React Native Elements is more about component structure than actual design.
         </Text>
@@ -101,8 +108,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    alignItems: 'center'
 },
 searchIcon: {
     padding: 10,
@@ -113,7 +119,15 @@ input: {
     paddingRight: 10,
     paddingBottom: 10,
     paddingLeft: 0,
-    backgroundColor: '#fff',
-    color: '#424242',
+   // color: '#424242',
+},
+category1: {
+  backgroundColor: '#f00',
+},
+category2: {
+  backgroundColor: '#0f0',
+},
+category3: {
+  backgroundColor: '#00f',
 }
 });

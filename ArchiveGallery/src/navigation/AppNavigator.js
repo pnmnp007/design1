@@ -22,14 +22,14 @@ export default class Home extends React.Component {
       </Card>
       </TouchableOpacity>
       <Card
-        title='HELLO WORLD'
+        title='HELLO WORLD 1'
         image={newsImage}>
         <Text style={{marginBottom: 10}}>
           The idea with React Native Elements is more about component structure than actual design.
         </Text>
       </Card>
       <Card
-        title='HELLO WORLD'
+        title='HELLO WORLD 2'
         image={newsImage}>
         <Text style={{marginBottom: 10}}>
           The idea with React Native Elements is more about component structure than actual design.

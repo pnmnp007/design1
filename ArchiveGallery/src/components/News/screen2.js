@@ -20,34 +20,76 @@ import ImageSlider from 'react-native-image-slider';
 class screen2 extends Component<{}> {
 
   render() {
-    const images = [
-    require('../../../assets/story1_1.jpg'),
-    require('../../../assets/story1_2.jpg'),
-    require('../../../assets/story1_3.jpg')
+    const stories = [
+      {
+        "id": 1,
+        "title": "What were kids wearing for Halloween in 1935?",
+        "title-image":require('../../../assets/1/title.jpg'),
+        "desc1": "Despite the economic situation of the time, these kids still dressed as sheep, clowns, sailors, and pumpkins. What will you be for Halloween? \n",
+        "desc2": "Join us for a screening of The Waiting Game, a student-produced documentary that takes a look at immigration policy in the US through the story of a family...\nAmerica in 1935 was still reeling from the effects of the depression with an unemployment rate of over 20%. While the U.S. was still recovering from the economic downturn, it was also a time of massive creativity and accomplishment. In 1935 Amelia Earhart flew solo across the Pacific, Monopoly was released, Social Security was signed into law, the VW Beetle was launched in Germany, Alcoholics Anonymous was formed, Persia was renamed Iran, the last concrete was poured into Hoover Dam and it was the birth year of nylon and swing dancing. And, in the middle of all this unemployment and accomplishment, was halloween. Here are some of our favorite costumes from the children of 1935. \nDespite the economic situation of the time, these kids still dressed as sheep, clowns, sailors, and pumpkins. What will you be for Halloween? \n",
+        "images": [
+          require('../../../assets/1/1_1.jpg'),
+          require('../../../assets/1/1_2.jpg'),
+          require('../../../assets/1/1_3.jpg')
+          ],
+          "image-desc":  [
+            'Children at a Halloween party playing with puppets Los Angeles, 1935',
+            'Children at a Halloween Party Los Angeles, 1935',
+            'Mary Jane Clary, Bobbie Harrell, Guy De Wolf, and Crete De Wolf in their Halloween costumes Los Angeles, 1935'
+          ]
+      },
+      {
+        "id": 2,
+        "title": "The Case of the Rosemead Marijuana Patch",
+        "title-image":require('../../../assets/2/title.jpg'),
+        "desc1": "Marijuana goes up in smoke, but not \"puff by puff\". Weed, Mary Jane, pot, grass, herb, ganga, mota. Whatever you choose to call it, marijuana has held a place in Los Angeles forever. And, in September of 1948, marijuana held a place beside the fence of a slaughterhouse at Rush St. and Loma Ave., Rosemead, and in an alley behind 6800 Alameda St. \nAuthorities supposedly found over a dozen trees of \"narcotic weed,\" some of which were growing over 10 feet high. The headline from September 8th was \"Marijuana valued at $20,000 went up in smoke yesterday, but not puff by puff\". \n",
+        "desc2": "Supposedly, the police valued the “wild” crop at over $20,000. Now, I don’t know who LAPD’s weed dealer is, but that seems expensive. Anyway, the point is, they burned it in compliance with federal regulation. \nCalifornia has traveled a long way since 1948. November 2016’s Proposition 64 saw the legalization of recreational cannabis for adults. One would be hard pressed to walk in Hollywood without passing a dispensary. The evolution of “weed culture” in LA has transformed since the mid-20th century. In fact, California was seen as a forerunner in the legalization of weed with the passing of the Compassionate Use Act in 1996.  \nSo I wanted to see how far LA had come since 1948 in regards to “weed culture.” I wanted a number, to quantify the progress of this issue.  So, I began, as any great journey does, in Google Maps, and I found the place where the police burned the weed in 1948. Then, I looked up the nearest dispensary.\nThe results of my research were as follows. There are approximately 4 dispensaries within a mile of 6800 S. Alameda. The operating hours range from 10am to midnight, and the closest dispensary, affectionately named The Green Library,  is .9 miles away. One reviewer writes, “Bomb buds and great price.” So this is how far we have come. 0.9 miles is how far LA has come on the issue of weed. And for those of you who want to check out this groundbreaking scholarship for yourselves, there’s a Chipotle right around there for when the munchies set in. So this is where we are at, Los Angeles. But I want to call your attention to the 1948 LAPD burning once again, for there is an interesting detail. See if you can find it.",
+        "images": [
+          require('../../../assets/2/2_1.png'),
+          require('../../../assets/2/2_2.png'),
+          require('../../../assets/2/2_3.jpg')
+          ],
+          "image-desc":  [
+            'LA Times article from September of 1948',
+            '4 dispensaries within a mile of 6800 S. Alameda',
+            'Did you catch the man smoking?'
+          ]
+      },
+      {
+        "id": 3,
+        "title": "Dia de Los Muertos: A Los Ángeles Tradition",
+        "title-image":require('../../../assets/3/title.jpg'),
+        "desc1": "Dia de Los Muertos, or, Day of the Dead, in English, is a Mexican holiday celebrating deceased ancestors. Prior to Spanish Colonization of Mexico, the holiday was celebrated during the end of the summer. The date was moved to coincide with the 31st of October, and 1st and 2nd of November to sync with Western Christianity's “Allhallowtide” which includes the celebrations of All Saints Eve (Oct. 31), All Saints Day (Nov. 1) and All Souls Day (Nov. 2).\n",
+        "desc2": "Day of the Dead dates back to an Aztec festival dedicated to the goddess Mictecacihuatl. Modern celebrants create altars (ofrendas), cook the favorite meal of their ancestors, and paint sugar skulls (calaveras). Here are some pictures of what Dia de los Muertos looked like in 1979.\nIf you are looking for a historic place to head this Dia de Los Muertos, try Olvera Street. The blend of markets, food and history will provide you with a little taste of Mexico.\n",
+        "images": [
+          require('../../../assets/3/3_1.jpg'),
+          require('../../../assets/3/3_2.jpg'),
+          require('../../../assets/3/3_3.jpg')
+          ],
+          "image-desc":  [
+            'Norma Pedregon dancing in Day of the Dead celebration in Los Angeles, Calif., 1979',
+            'Puppeteer Paula Goldstein at Day of the Dead celebration in Los Angeles, Calif., 1979',
+            'Dancers on Olvera Street in Los Angeles, Calif., 1972'
+          ]
+      }
+      
     ];
 
-    const imageDesc = [
-      'Children at a Halloween party playing with puppets Los Angeles, 1935',
-      'Children at a Halloween Party Los Angeles, 1935',
-      'Mary Jane Clary, Bobbie Harrell, Guy De Wolf, and Crete De Wolf in their Halloween costumes Los Angeles, 1935'
-    ];
 
-    let title = 'What were kids wearing for Halloween in 1935?';
 
-    let desc1 = "Despite the economic situation of the time, these kids still dressed as sheep, clowns, sailors, and pumpkins. What will you be for Halloween? \n";
 
-    let desc2 = "Join us for a screening of The Waiting Game, a student-produced documentary that takes a look at immigration policy in the US through the story of a family...\nAmerica in 1935 was still reeling from the effects of the depression with an unemployment rate of over 20%. While the U.S. was still recovering from the economic downturn, it was also a time of massive creativity and accomplishment. In 1935 Amelia Earhart flew solo across the Pacific, Monopoly was released, Social Security was signed into law, the VW Beetle was launched in Germany, Alcoholics Anonymous was formed, Persia was renamed Iran, the last concrete was poured into Hoover Dam and it was the birth year of nylon and swing dancing. And, in the middle of all this unemployment and accomplishment, was halloween. Here are some of our favorite costumes from the children of 1935. \nDespite the economic situation of the time, these kids still dressed as sheep, clowns, sailors, and pumpkins. What will you be for Halloween? \n";
-
+    const id = this.props.navigation.getParam('id')-1;
+    
     return (
       <View style={styles.container}>
       <ScrollView>
-        <Image source = {images[0]} style={{width: '100%', height: 300}}/>
+        <Image source = {stories[id]['title-image']} style={{width: '100%', height: 300}}/>
       <View style={styles.content1}>
-          <Text style={{fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 10}}>{title}</Text>
-          <Text>{desc1}</Text>
+          <Text style={{fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 10}}>{stories[id]['title']}</Text>
+          <Text>{stories[id]['desc1']}</Text>
         </View>
         <ImageSlider
-          images={images}
+          images={stories[id]['images']}
           customSlide={({ index, item, style, width }) => (
             // It's important to put style here because it's got offset inside
             <View
@@ -58,12 +100,12 @@ class screen2 extends Component<{}> {
               ]}
             >
               <Image source={item} style={styles.customImage} />
-              <Text>{imageDesc[index]}</Text>
+              <Text>{stories[id]['image-desc'][index]}</Text>
             </View>
           )}
         />
         <View style={styles.content2}>
-          <Text>{desc2}</Text>
+          <Text>{stories[id]['desc2']}</Text>
         </View>
       </ScrollView>
       </View>
@@ -75,27 +117,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
+    padding: 20,
+    justifyContent: 'flex-start'
   },
   slider: { backgroundColor: '#000'},
   content1: {
     width: '100%',
     marginBottom: 10,
     backgroundColor: '#fff',
-    justifyContent: 'center',
     alignItems: 'center',
     color: '#000',
-    marginLeft: 10,
-    marginRight: 10
+    textAlign: 'justify'
   },
   content2: {
-    width: '100%',
     marginTop: 10,
+    flex:1,
     backgroundColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 10,
-    marginRight: 10
+    textAlign: 'justify'
   },
+
   contentText: { color: '#000' },
 
   customSlide: {
