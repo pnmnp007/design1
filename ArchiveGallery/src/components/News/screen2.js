@@ -18,7 +18,7 @@ import {
 import ImageSlider from 'react-native-image-slider';
 
 class screen2 extends Component<{}> {
-
+  static navigationOptions = ({navigation}) => { return { headerTitle:null, headerTransparent: true, headerStyle: { borderBottomWidth: 0, } } }
   render() {
     const stories = [
       {
@@ -100,7 +100,7 @@ class screen2 extends Component<{}> {
               ]}
             >
               <Image source={item} style={styles.customImage} />
-              <Text>{stories[id]['image-desc'][index]}</Text>
+              <Text style={{padding:20, marginBottom:10}}>{stories[id]['image-desc'][index]}</Text>
             </View>
           )}
         />
@@ -116,12 +116,14 @@ class screen2 extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
-    padding: 20,
+    backgroundColor: '#fff',
     justifyContent: 'flex-start'
   },
-  slider: { backgroundColor: '#000'},
+  slider: { 
+    padding: 20, backgroundColor: '#000'},
   content1: {
+    
+    padding: 20,
     width: '100%',
     marginBottom: 10,
     backgroundColor: '#fff',
@@ -130,20 +132,25 @@ const styles = StyleSheet.create({
     textAlign: 'justify'
   },
   content2: {
+    
+    padding: 20,
     marginTop: 10,
     flex:1,
     backgroundColor: '#fff',
     textAlign: 'justify'
   },
 
-  contentText: { color: '#000' },
+  contentText: {
+    padding: 20, color: '#000' },
 
   customSlide: {
-    backgroundColor: 'white',
+
+    backgroundColor: 'grey',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
   },
   customImage: {
+    backgroundColor:'black',
     width: "100%",
      height: 400,
   },

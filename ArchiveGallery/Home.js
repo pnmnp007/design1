@@ -7,9 +7,7 @@ import {Card, Icon} from 'react-native-elements';
 import { createStackNavigator } from 'react-navigation';
 export default class Home extends React.Component {
 
-  // static navigationOptions = {
-  //   header: { visible:false },
-  //   };
+  static navigationOptions = ({navigation}) => { return { headerTitle:null, headerTransparent: true, headerStyle: { borderBottomWidth: 0, } } }
 
   render() {
     let newsDesc = "";
