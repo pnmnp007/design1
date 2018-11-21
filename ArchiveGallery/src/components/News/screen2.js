@@ -13,12 +13,26 @@ import {
   Image,
   ScrollView,
   TouchableHighlight,
+  TouchableOpacity,
+  Button
 } from 'react-native';
+import {Icon} from 'react-native-elements';
 
 import ImageSlider from 'react-native-image-slider';
 
 class screen2 extends Component<{}> {
-  static navigationOptions = ({navigation}) => { return { headerTitle:null, headerTransparent: true, headerStyle: { borderBottomWidth: 0, } } }
+  static navigationOptions = 
+    ({navigation}) => 
+      { return { headerTitle:null, headerTransparent: true, headerStyle: { borderBottomWidth: 0, marginRight: 20, shadowRadius: 5},
+       headerRight: (
+        <Icon
+         onPress = {() => {navigation.popToTop()}}
+         name = "close"
+         style = {{padding: 20}}
+         underlayColor = "transparent"
+        />
+      ) 
+    } }
   render() {
     const stories = [
       {
@@ -75,10 +89,28 @@ class screen2 extends Component<{}> {
       
     ];
 
-
-
-
     const id = this.props.navigation.getParam('id')-1;
+
+    var moreStories = [];
+    var count = 0;
+    for(let i=0; i<stories.length; i++){
+      if(i !== id){
+        count++;
+        moreStories.push(
+          <TouchableOpacity onPress = {() => this.props.navigation.push('screen2', {id: i+1})}>
+            <View key = {i}>
+                <Text style={{fontSize: 20, color: "#0B0B0B", marginTop: 8}}>{stories[i]['title']}</Text>
+            </View>
+          </TouchableOpacity>
+        )
+
+        if(count < stories.length-1){
+          moreStories.push(
+            <View key = {i} style={{borderBottomColor: 'red', borderBottomWidth: 1, marginTop: 8}}></View>
+          )
+        }
+      }
+    }
     
     return (
       <View style={styles.container}>
@@ -107,6 +139,14 @@ class screen2 extends Component<{}> {
         <View style={styles.content2}>
           <Text>{stories[id]['desc2']}</Text>
         </View>
+
+        
+      <View style={{borderBottomColor: 'black', borderBottomWidth: 1, marginLeft: 20, marginRight: 20}}></View>
+      <View style = {styles.moreStoryContainer}>        
+        <Text style={{ fontStyle: "italic", fontWeight: "bold", fontSize: 15, color: "#0B0B0B" }}> More Stories</Text>
+        {moreStories}
+      </View>
+
       </ScrollView>
       </View>
     );
@@ -116,7 +156,7 @@ class screen2 extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     justifyContent: 'flex-start'
   },
   slider: { 
@@ -154,6 +194,11 @@ const styles = StyleSheet.create({
     width: "100%",
      height: 400,
   },
+  moreStoryContainer:{
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 20,
+  }
 });
 
 export default screen2;

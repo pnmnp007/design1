@@ -15,4 +15,5 @@ export default App = createStackNavigator(
     },
     {
         headerMode:'screen'
-    });
+    }
+    );
