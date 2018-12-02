@@ -6,33 +6,48 @@
 
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
   Image,
   ScrollView,
-  TouchableHighlight,
   TouchableOpacity,
-  Button
+  TouchableHighlight,
 } from 'react-native';
-import {Icon} from 'react-native-elements';
+
+import ImageView from 'react-native-image-view';
+
 
 import ImageSlider from 'react-native-image-slider';
-
 class screen2 extends Component<{}> {
   static navigationOptions = 
     ({navigation}) => 
       { return { headerTitle:null, headerTransparent: true, headerStyle: { borderBottomWidth: 0, marginRight: 20, shadowRadius: 5},
        headerRight: (
-        <Icon
-         onPress = {() => {navigation.popToTop()}}
-         name = "close"
-         style = {{padding: 20}}
-         underlayColor = "transparent"
-        />
-      ) 
+        <TouchableOpacity onPress={() => navigation.popToTop()}>
+          <Image
+            style={{width: 24, height: 24, marginTop: 10}}
+            source={require('../../../assets/close.png')}
+          />
+        </TouchableOpacity>
+      ),
+      headerLeft: (
+        <TouchableOpacity onPress={() => navigation.pop()}>
+          <Image
+            style={{width: 24, height: 24, marginLeft: 20, marginTop: 10}}
+            source={require('../../../assets/back.png')}
+          />
+        </TouchableOpacity>
+      )
     } }
+    constructor(props) {
+      super(props);
+
+      this.state = {
+          imageIndex: 0,
+          isImageViewVisible: false,
+      };
+  }
   render() {
     const stories = [
       {
@@ -111,8 +126,54 @@ class screen2 extends Component<{}> {
         }
       }
     }
-    
+    const {isImageViewVisible, imageIndex} = this.state;
+    const images=[{source:stories[id]['images'][1]}];
+  //   const nature = [
+  //     {
+  //         source: require('../../../assets/3/3_1.jpg'),
+  //            // uri: 'https://s4.insidehook.com/Switzerland_Hea_1493053457.jpg',
+  //            //uri:'assets:/3/3_1.jpg',
+  //         //title: 'St-Petersburg',
+  //         width: 800,
+  //         height: 400,
+             
+  //     },
+  //   ];
+  //   const cities = [
+  //     {
+  //         source: {
+  //             uri:
+  //                 'https://avatars.mds.yandex.net/get-pdb/49816/d9152cc6-bf48-4e44-b2d5-de73b2e94454/s800',
+  //         },
+  //         title: 'London',
+  //     },
+  //     {
+  //         source: {
+  //             uri:
+  //                 'https://cdn.pixabay.com/photo/2017/08/17/10/47/paris-2650808_960_720.jpg',
+  //         },
+  //         title: 'Paris',
+  //         width: 806,
+  //         height: 720,
+  //     },
+  //     {
+  //       source: {
+  //           uri:
+  //               'https://cdn.pixabay.com/photo/2017/08/17/10/47/paris-2650808_960_720.jpg',
+  //       },
+  //       title: 'Paris',
+  //       width: 806,
+  //       height: 720,
+  //   },
+  // ];
+  var images2=[];
+    for (var i=0; i<=2;i++)
+    {
+        var x={source:stories[id]['images'][i],height:400, width:400};
+        images2.push(x);
+    }
     return (
+      
       <View style={styles.container}>
       <ScrollView>
         <Image source = {stories[id]['title-image']} style={{width: '100%', height: 300}}/>
@@ -124,6 +185,12 @@ class screen2 extends Component<{}> {
           images={stories[id]['images']}
           customSlide={({ index, item, style, width }) => (
             // It's important to put style here because it's got offset inside
+            <TouchableHighlight  onPress={() => {
+              this.setState({
+                  imageIndex: {index},
+                  isImageViewVisible: true,
+              });
+          }}>
             <View
               key={index}
               style={[
@@ -131,9 +198,11 @@ class screen2 extends Component<{}> {
                 styles.customSlide
               ]}
             >
+             
               <Image source={item} style={styles.customImage} />
               <Text style={{padding:20, marginBottom:10}}>{stories[id]['image-desc'][index]}</Text>
             </View>
+            </TouchableHighlight>
           )}
         />
         <View style={styles.content2}>
@@ -148,6 +217,14 @@ class screen2 extends Component<{}> {
       </View>
 
       </ScrollView>
+      <ImageView
+          glideAlways width={400} height ={400}
+          images={images2}
+          imageIndex={imageIndex}
+          animationType="fade"
+          isVisible={isImageViewVisible}
+          onClose={() => this.setState({isImageViewVisible: false})}
+      />
       </View>
     );
   }
@@ -156,6 +233,8 @@ class screen2 extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 30,
+    paddingBottom: 30,
     backgroundColor: '#FFFFFF',
     justifyContent: 'flex-start'
   },
