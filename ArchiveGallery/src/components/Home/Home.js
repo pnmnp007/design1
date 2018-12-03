@@ -8,7 +8,7 @@ import { createStackNavigator } from 'react-navigation';
 import { AppLoading, Font } from 'expo';
 export default class Home extends React.Component {
 
-  static navigationOptions = ({navigation}) => { return { headerTitle:null, headerTransparent: true, headerStyle: { borderBottomWidth: 0, }, } ;}
+  static navigationOptions = ({navigation}) => { return { headerTitle:null, headerTransparent: true, headerStyle: { borderBottomWidth: 0, } } ;}
   state = {
     fontLoaded: false,
   };
@@ -22,9 +22,19 @@ export default class Home extends React.Component {
     ];
     newsDesc=newsDesc+newsDesc;
 
+   /* if(!this.state.fontLoaded) {
+      return (
+        <AppLoading
+          startAsync={this._loadResourcesAsync}
+          onError={this._handleLoadingError}
+          onFinish={this._handleFinishLoading}
+        />
+      );
+    }
+    else{*/
     return (
       <ScrollView>
-      <View style = {styles.mainContainer}>
+      <View >
       <TouchableOpacity onPress={() => this.props.navigation.navigate('screen2', {id:1})}>
       <Card wrapperStyle={styles.category1} containerStyle = {styles.cardContainer}
         title={null}
@@ -130,10 +140,6 @@ _handleFinishLoading = () => {
 
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    marginTop: 20,
-    paddingBottom: 20
-  },
   viewPager: {
     flex: 1
   },

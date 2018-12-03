@@ -114,14 +114,14 @@ class screen2 extends Component<{}> {
         moreStories.push(
           <TouchableOpacity onPress = {() => this.props.navigation.push('screen2', {id: i+1})}>
             <View key = {i}>
-                <Text style={{fontSize: 20, color: "#0B0B0B", marginTop: 8}}>{stories[i]['title']}</Text>
+                <Text style={styles.moreStoriesHeading}>{stories[i]['title']}</Text>
             </View>
           </TouchableOpacity>
         )
 
         if(count < stories.length-1){
           moreStories.push(
-            <View key = {i} style={{borderBottomColor: 'red', borderBottomWidth: 1, marginTop: 8}}></View>
+            <View key = {i} style={styles.moreStoriesBorder}></View>
           )
         }
       }
@@ -176,10 +176,10 @@ class screen2 extends Component<{}> {
       
       <View style={styles.container}>
       <ScrollView>
-        <Image source = {stories[id]['title-image']} style={{width: '100%', height: 300}}/>
-      <View style={styles.content1}>
-          <Text style={{fontWeight: "bold", fontSize: 20, marginTop: 10, marginBottom: 10}}>{stories[id]['title']}</Text>
-          <Text>{stories[id]['desc1']}</Text>
+        <Image source = {stories[id]['title-image']} style={styles.titleImage}/>
+        <View >
+          <Text style={styles.titleContent}>{stories[id]['title']}</Text>
+          <Text style={styles.storyContent}>{stories[id]['desc1']}</Text>
         </View>
         <ImageSlider
           images={stories[id]['images']}
@@ -200,19 +200,19 @@ class screen2 extends Component<{}> {
             >
              
               <Image source={item} style={styles.customImage} />
-              <Text style={{padding:20, marginBottom:10}}>{stories[id]['image-desc'][index]}</Text>
+              <Text style = {{padding:20, marginBottom: 10}}>{stories[id]['image-desc'][index]}</Text>
             </View>
             </TouchableHighlight>
           )}
         />
-        <View style={styles.content2}>
-          <Text>{stories[id]['desc2']}</Text>
+        <View>
+          <Text style = {styles.storyContent}>{stories[id]['desc2']}</Text>
         </View>
 
         
       <View style={{borderBottomColor: 'black', borderBottomWidth: 1, marginLeft: 20, marginRight: 20}}></View>
-      <View style = {styles.moreStoryContainer}>        
-        <Text style={{ fontStyle: "italic", fontWeight: "bold", fontSize: 15, color: "#0B0B0B" }}> More Stories</Text>
+      <View>        
+        <Text style={styles.moreStoryContainer}> More Stories</Text>
         {moreStories}
       </View>
 
@@ -238,32 +238,52 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     justifyContent: 'flex-start'
   },
-  slider: { 
-    padding: 20, backgroundColor: '#000'},
-  content1: {
-    
-    padding: 20,
-    width: '100%',
-    marginBottom: 10,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    color: '#000',
-    textAlign: 'justify'
+  titleImage: {
+   width: '100%',
+   maxHeight: '48%',
+   height: 300
   },
-  content2: {
-    
-    padding: 20,
-    marginTop: 10,
+  titleContent :{
+    textAlign : 'left',
+    fontSize: 25,
+    //fontFamily: 'helvetica-light',
+    color:'#0B0B0B',
+    //fontWeight: 'bold',
+    paddingLeft: '7%',
+    paddingRight: '7%',
+    marginTop: '1.5%',
+    opacity: 0.9,
+  },
+  storyContent: {
+    textAlign : 'left',
+    fontSize: 14,
     flex:1,
-    backgroundColor: '#fff',
-    textAlign: 'justify'
+    //fontFamily: 'helvetica-light',
+    color:'#0B0B0B',
+    //fontWeight: 'bold',
+    paddingLeft: '7%',
+    paddingRight: '7%',
+    marginTop: '1.5%',
+    opacity: 0.5,
   },
+  captionContent: {
+    textAlign : 'left',
+    fontSize: 10,
+    //fontFamily: 'helvetica-light',
+    color:'#FFFFFF',
+    paddingLeft: '7%',
+    paddingRight: '7%',
+    marginTop: '1.5%',
 
-  contentText: {
-    padding: 20, color: '#000' },
-
+    //fontWeight: 'bold',
+  },
+  slider: { 
+    padding: 20, 
+    backgroundColor: '#000'
+  },
   customSlide: {
-
+    //width: '100%',
+   // maxHeight:'48%',
     backgroundColor: 'grey',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
@@ -271,12 +291,36 @@ const styles = StyleSheet.create({
   customImage: {
     backgroundColor:'black',
     width: "100%",
-     height: 400,
+   // maxHeight:'48%',
+    height: 400,
   },
   moreStoryContainer:{
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 20,
+    textAlign : 'left',
+    fontSize: 15,
+    //fontFamily: 'helvetica-light',
+    color:'#0B0B0B',
+    fontStyle: 'italic',
+    paddingLeft: '7%',
+    paddingRight: '7%',
+    marginTop: '1.5%',
+    opacity: 1.0,
+  },
+  moreStoriesHeading :{
+    textAlign : 'left',
+    fontSize: 20,
+    //fontFamily: 'helvetica-light',
+    color:'#0B0B0B',
+    //fontWeight: 'bold',
+    paddingLeft: '7%',
+    paddingRight: '7%',
+    marginTop: '1.5%',
+  },
+  moreStoriesBorder: {
+    paddingLeft: '7%',
+    paddingRight: '7%',
+    marginTop: '1.5%',
+    borderBottomColor: 'red',
+    borderBottomWidth: 1,
   }
 });
 
